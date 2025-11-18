@@ -1,0 +1,112 @@
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mix Conveniência - Todos produtos</title>
+    <link rel="stylesheet" href="../css/todosprod.css">
+  </head>
+  <body>
+
+    <main class="conteiner">
+      <aside class="barra-lateral">
+        <div class="titulo">Todos produtos</div>
+
+        <div class="grupo-filtro">
+          <h4>Setor:</h4> 
+          <label class="caixa"><input type="checkbox" checked> Bebidas</label>
+          <label class="caixa"><input type="checkbox" checked> Mercearia</label>
+          <label class="caixa"><input type="checkbox"> Sorvetes ou gelo</label>
+          <div class="linha-suave"></div>
+
+          <h4>Categoria:</h4>
+          <label class="caixa"><input type="checkbox" checked> Cervejas (78)</label>
+          <label class="caixa"><input type="checkbox" checked> Destilados (15)</label>
+          <label class="caixa"><input type="checkbox"> Chocolates (10)</label>
+          <div class="linha-suave"></div>
+
+          <h4>Subcategoria:</h4>
+          <label class="caixa"><input type="checkbox" checked> Cervejas tradicionais (40)</label>
+          <label class="caixa"><input type="checkbox" checked> Cervejas especiais (28)</label>
+          <label class="caixa"><input type="checkbox"> Whisky (5)</label>
+          <div class="linha-suave"></div>
+
+          <h4>Marca:</h4>
+          <label class="caixa"><input type="checkbox" checked> Todas</label>
+        </div>
+      </aside>
+
+      <section class="principal">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px">
+          <div class="ordenar"> Ordenar por: 
+            <select class="relevancia">
+                <option>Relevância</option>
+                <option>Menor preço</option>
+                <option>Maior preço</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grade">
+          <div class="cartao">
+            <div class="caixa-img"><img src="../images/heineken.png" alt="Cerveja Heineken"></div>
+            <div class="titulo-produto">Cerveja Heineken<br><span style="font-weight:700">600 ml</span></div>
+            <div class="preco-antigo">De 12,99</div>
+            <div class="preco">R$ 10,99</div>
+            <button class="botao">Adicionar</button>
+          </div>
+
+          <div class="cartao">
+            <div class="caixa-img"><img src="../images/brahma.jpg" alt="Cerveja Brahma"></div>
+            <div class="titulo-produto">Cerveja Brahma<br><span style="font-weight:700">600 ml</span></div>
+            <div class="preco-antigo">De 11,99</div>
+            <div class="preco">R$ 9,99</div>
+            <button class="botao">Adicionar</button>
+          </div>
+
+          <div class="cartao">
+            <div class="caixa-img"><img src="../images/beats senses.jpg" alt="Skol Beats"></div>
+            <div class="titulo-produto">Skol Beats Senses Long Neck<br><span style="font-weight:700">300 ml</span></div>
+            <div class="preco-antigo">De 9,99</div>
+            <div class="preco">R$ 7,99</div>
+            <button class="botao">Adicionar</button>
+          </div>
+
+          <div class="cartao">
+            <div class="caixa-img"><img src="../images/Whisky Red Label 1L.jpg" alt="Whisky Red Label"></div>
+            <div class="titulo-produto">Whisky Red Label 1L</div>
+            <div class="preco">R$ 90,99</div>
+            <button class="botao">Adicionar</button>
+          </div>
+
+          <div class="cartao">
+            <div class="caixa-img"><img src="../images/Whisky White Horse.jpg" alt="Whisky White Horse"></div>
+            <div class="titulo-produto">Whisky White Horse<br><span style="font-weight:700">1L</span></div>
+            <div class="preco">R$ 79,99</div>
+            <button class="botao">Adicionar</button>
+          </div>
+
+          <div class="cartao">
+            <div class="caixa-img"><img src="../images/Barra de chocolate.png" alt="Barra de chocolate"></div>
+            <div class="titulo-produto">Barra de chocolate<br>lacta ao leite 80G</div>
+            <div class="preco">R$ 7,99</div>
+            <button class="botao">Adicionar</button>
+          </div>
+        </div>
+
+        <div class="rodape-linha">
+          <div class="paginacao">
+            <div style="font-size:22px;font-weight:800;margin-right:8px">De:</div>
+            <div class="pag ativa">1</div>
+            <div class="pag">2</div>
+            <div class="pag">3</div>
+            <div class="pag">...</div>
+            <div class="pag">15</div>
+          </div>
+          <div class="exibindo">Exibindo 6 ▾ produtos por página</div>
+        </div>
+
+      </section>
+    </main>
+  </body>
+  </html>
