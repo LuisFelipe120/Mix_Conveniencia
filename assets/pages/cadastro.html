@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link rel="stylesheet" href="../css/cadastro.css">
     <title>Cadastro</title>
 </head>
 <body>
       <div class="container">
     <div class="logo">
-      <img src="./assets/logo mix conv.png" alt="Logo Mix" width="200">
+      <a href="../../index.html">
+      <img src="../images/WhatsApp_Image_2025-09-01_at_20.26.19__1_-removebg-preview.png" alt="Logo Mix" width="200">
+      </a>
     </div>
 
     <form name="cadastro" action="" method="">
@@ -17,7 +21,8 @@
       <h1>Cadastro</h1>
       
       <div class="section">
-        <span><img src="./assets/icons8-key-16.png" alt="Chave de acesso"> Acesso</span>
+        <i class="fa-solid fa-key"></i>
+        <span>Acesso</span>
       </div>
       
       <div class="todos">
@@ -39,8 +44,8 @@
       </div>
 
       <div class="section">
-        <span> <img src="./assets/icons8-client-16.png" alt="icon-cliente"> Dados Pessoais
-        </span>
+        <i class="fa-solid fa-user"></i>
+        <span>Dados Pessoais</span>
       </div>
       
       <div class="todos">
@@ -53,10 +58,15 @@
           <label for="cpf">CPF:</label>
           <input type="text" id="cpf" size="40" maxlength="40" placeholder="222.222.222-22">
         </div>
+        <div class="field" style="flex:1;">
+          <label for="cpf">Telefone:</label>
+            <input type="tel" placeholder="(99) 99999-999" pattern="\(\d{2}\)\s\d{5}-\d{4}" title ='(99) (99999-9999)' />
+        </div>
       </div>
 
       <div class="section">
-        <span> <img src="./assets/icons8-house-16 (1).png" alt="endereco"> Endereço</span>
+        <i class="fa-solid fa-house"></i>
+        <span>Endereço</span>
       </div>
       
       <div class="todos">
