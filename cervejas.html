@@ -1,393 +1,449 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mix Conveniencia - Cervejas</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    color: #000;
-  }
-  header {
-    background-color: #d9d9d6;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 30px;
-  }
-  .logo img {
-  height: 90px;
-  }
- 
-  .search-area {
-    flex-grow: 1;
-    max-width: 500px;
-    margin: 0 20px;
-    position: relative;
-  }
-  .search-area input {
-    width: 100%;
-    font-size: 14px;
-    padding: 8px 36px 8px 14px;
-    border-radius: 18px;
-    border: 1px solid #717cff;
-    outline: none;
-  }
-  .search-icon img {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 14px;
-    background-color: #717cff;
-    border-radius: 50%;
-  }
-  .user-cart-area {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  .user-cart-area .icon-placeholder {
-    width: 20px;
-    height: 20px;
-    background-color: #1723af;
-    border-radius: 50%;
-  }
-  main {
-    display: flex;
-    padding: 20px 30px;
-  }
-  .sidebar-filters {
-    width: 160px;
-    margin-right: 30px;
-    font-size: 13px;
-  }
-  .sidebar-filters h3 {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #1723af;
-  }
-  .filter-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-    font-weight: 400;
-    color: #666;
-    font-size: 12px;
-  }
-  .filter-label strong {
-    margin-right: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #1723af;
-  }
-  .filter-label input[type="checkbox"] {
-    margin-right: 6px;
-  }
-  .separator {
-    height: 1px;
-    background-color: #dddddd;
-    margin: 15px 0 20px;
-  }
-  .product-section {
-    flex-grow: 1;
-  }
-  .page-heading {
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  .sort-controls {
-    text-align: right;
-    margin-bottom: 15px;
-    font-size: 11px;
-    color: #1723af;
-  }
-  .sort-controls select {
-    font-size: 11px;
-    padding: 2px 5px;
-    border-radius: 12px;
-    border: 1px solid #c4c4c4;
-  }
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px 20px;
-  }
-  .product-card {
-    background: #fff;
-    border: 1px solid #bbb;
-    padding: 10px;
-    text-align: center;
-    font-size: 12px;
-    box-sizing: border-box;
-  }
-  .product-image-holder {
-    width: 100px;
-    height: 100px;
-    margin: 10px auto 8px;
-    background-color: #fff;
-    border: 1px solid #555;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .product-image-holder img {
-    max-width: 80px;
-    max-height: 80px;
-    object-fit: contain;
-  }
-  .product-title {
-    font-weight: 700;
-    font-size: 13px;
-    margin-bottom: 4px;
-    line-height: 1.2;
-  }
-  .product-price {
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  .btn-add-to-cart {
-    background-color: #2b50cd;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 5px 15px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 12px;
-  }
-  .pagination-area {
-    margin: 40px 30px 20px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #771a1a;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .pagination-area .page-label {
-    margin-right: 8px;
-  }
-  .pagination-area button {
-    width: 27px;
-    height: 27px;
-    border-radius: 5px;
-    border: 1px solid #777;
-    background-color: #fff;
-    cursor: pointer;
-    font-weight: 700;
-    color: #771a1a;
-  }
-  .pagination-area button.active {
-    background-color: #771a1a;
-    color: #fff;
-    border: none;
-  }
-  .pagination-area .products-per-page {
-    margin-left: auto;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .pagination-area .products-per-page::before {
-    content: "Exibindo 18 ▼";
-    font-weight: 700;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mix Conveniencia - Cervejas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      color: #000;
+    }
 
-</style>
+    header {
+      background-color: #d9d9d6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+    }
+
+    .logo img {
+      height: 90px;
+    }
+
+    .search-area {
+      flex-grow: 1;
+      max-width: 500px;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .search-area input {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px 36px 8px 14px;
+      border-radius: 18px;
+      border: 1px solid #717cff;
+      outline: none;
+    }
+
+    .search-icon img {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+    }
+
+    
+    .user-cart-area {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      /* espaço igual ao do print */
+    }
+
+
+    
+    .icon-user img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      filter: invert(28%) sepia(100%) saturate(5000%) hue-rotate(225deg) brightness(90%);
+    }
+
+   
+    .user-cart-area> {
+      font-size: 16px;
+      font-weight: 600;
+      margin-left: 6px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .icon-cart img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      filter: invert(28%) sepia(100%) saturate(5000%) hue-rotate(225deg) brightness(90%);
+    }
+
+
+    main {
+      display: flex;
+      padding: 20px 30px;
+    }
+
+    .sidebar-filters {
+      width: 160px;
+      margin-right: 30px;
+      font-size: 13px;
+    }
+
+    .sidebar-filters h3 {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #1723af;
+    }
+
+    .filter-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      font-weight: 400;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .filter-label strong {
+      margin-right: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1723af;
+    }
+
+    .filter-label input[type="checkbox"] {
+      margin-right: 6px;
+    }
+
+    .separator {
+      height: 1px;
+      background-color: #dddddd;
+      margin: 15px 0 20px;
+    }
+
+    .product-section {
+      flex-grow: 1;
+    }
+
+    .page-heading {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sort-controls {
+      text-align: right;
+      margin-bottom: 15px;
+      font-size: 11px;
+      color: #1723af;
+    }
+
+    .sort-controls select {
+      font-size: 11px;
+      padding: 2px 5px;
+      border-radius: 12px;
+      border: 1px solid #c4c4c4;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid #bbb;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+      box-sizing: border-box;
+    }
+
+    .product-image-holder {
+      width: 100px;
+      height: 100px;
+      margin: 10px auto 8px;
+      background-color: #fff;
+      border: 1px solid #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-holder img {
+      max-width: 80px;
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    .product-title {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .product-price {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn-add-to-cart {
+      background-color: #2b50cd;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 5px 15px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .pagination-area {
+      margin: 40px 30px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #771a1a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pagination-area .page-label {
+      margin-right: 8px;
+    }
+
+    .pagination-area button {
+      width: 27px;
+      height: 27px;
+      border-radius: 5px;
+      border: 1px solid #777;
+      background-color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+      color: #771a1a;
+    }
+
+    .pagination-area button.active {
+      background-color: #771a1a;
+      color: #fff;
+      border: none;
+    }
+
+    .pagination-area .products-per-page {
+      margin-left: auto;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    .pagination-area .products-per-page::before {
+      content: "Exibindo 18 ▼";
+      font-weight: 700;
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <div class="logo">
-    <img src="assets/images/WhatsApp_Image_2025-09-01_at_20.26.19__1_-removebg-preview.png" alt="Mix Conveniencia Logo">
-  </div>
-        <div class="">
-          <span style="color: black;">
-            Mix Conveniencia ^
-          </span>
-        </div>
-  <div class="search-area">
-    <input type="search" placeholder="Procurar produto..." />
-    <div class="search-icon">
-      <img src="assets/images/pesquisa-de-lupa(1).png" alt="Lupa">
+  <header>
+    <div class="logo">
+      <img src="assets/images/WhatsApp_Image_2025-09-01_at_20.26.19__1_-removebg-preview.png"
+        alt="Mix Conveniencia Logo">
     </div>
-  </div>
-  <div class="user-cart-area">
-    <div class="icon-user ">
-      <img src="assets/imagens/perfil.png" alt="perfil">
+    <div class="">
+      <span style="color: black;">
+        Mix Conveniencia ^
+      </span>
     </div>
-    <div>
-      Entre ou Cadastre
+    <div class="search-area">
+      <input type="search" placeholder="Procurar produto..." />
+      <div class="search-icon">
+        <img src="assets/images/lupa.png" alt="Lupa">
+      </div>
     </div>
-    <div class="icon" aria-label="Espaço para ícone carrinho">
-      <img src="assets/imagens/carrinho-de-compras.png" alt="Carrinho">
-    </div>
-  </div>
-</header>
-<main>
-  <aside class="sidebar-filters" aria-label="Filtros">
-    <div>
-      <h3>Categoria:</h3>
-      <label class="filter-label">
-        <input type="checkbox" /> Cervejas <span class="count">(78)</span>
-      </label>
-    </div>
-    <div class="separator"></div>
-    <div>
-      <h3>SubCategoria:</h3>
-      <label class="filter-label">
-        <input type="checkbox" /> Cervejas tradicionais <span class="count">(48)</span>
-      </label>
-      <label class="filter-label">
-        <input type="checkbox" /> Cervejas Especiais <span class="count">(20)</span>
-      </label>
-      <label class="filter-label">
-        <input type="checkbox" /> Kits de Cerveja <span class="count">(10)</span>
-      </label>
-    </div>
-    <div class="separator"></div>
-    <div>
-      <h3>Marca</h3>
-      <label class="filter-label"><input type="checkbox" /> Skol</label>
-      <label class="filter-label"><input type="checkbox" /> Budwaiser</label>
-      <label class="filter-label"><input type="checkbox" /> Heineken</label>
-      <label class="filter-label"><input type="checkbox" /> Brahma</label>
-      <label class="filter-label"><input type="checkbox" /> Imperio</label>
-    </div>
-  </aside>
-  <section class="product-section" aria-label="Lista de produtos">
-    <h1 class="page-heading">Cervejas</h1>
-    <div class="sort-controls">
-      Ordenar Por:
-      <select aria-label="Ordenar produtos">
-        <option>Relevancia</option>
-      </select>
-    </div>
+    <div class="user-cart-area">
 
-    <div class="products-grid">
-      <!-- Card: Heineken -->
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Heineken 600 ml">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Heineken_bottle.svg/1200px-Heineken_bottle.svg.png" alt="Cerveja Heineken 600 ml" />
-        </div>
-        <div class="product-title">Cerveja Heineken<br />600 ml</div>
-        <div class="product-price">R$ 10,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Heineken ao carrinho">Adicionar</button>
-      </div>
-      <!-- Card: Brahma -->
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Brahma 600 ml">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Brahma_Beer_cerveja.png" alt="Cerveja Brahma 600 ml" />
-        </div>
-        <div class="product-title">Cerveja Brahma<br />600 ml</div>
-        <div class="product-price">R$ 9,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Brahma ao carrinho">Adicionar</button>
-      </div>
-      <!-- Card: Skol -->
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Skol 350 ml">
-          <img src="https://logodownload.org/wp-content/uploads/2016/10/skol-logo-2.png" alt="Cerveja Skol 350 ml" style="max-height: 60px;" />
-        </div>
-        <div class="product-title">Cerveja Skol<br />lt 350 ml</div>
-        <div class="product-price">R$ 2,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Skol ao carrinho">Adicionar</button>
-      </div>
-      <!-- Card: Imperio -->
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Imperio 350 ml">
-          <img src="https://www.promodefix.com.br/img/produtos/143026589811-cerveja-imperio-lata-350ml.png" alt="Cerveja Imperio 350 ml" />
-        </div>
-        <div class="product-title">Cerveja Imperio<br />lt 350 ml</div>
-        <div class="product-price">R$ 3,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Imperio ao carrinho">Adicionar</button>
+      <div class="icon-user">
+        <img src="assets/images/perfil.png" alt="perfil">
       </div>
 
-      <!-- Repete para preencher o grid: 18 produtos -->
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Heineken 600 ml">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Heineken_bottle.svg/1200px-Heineken_bottle.svg.png" alt="Cerveja Heineken 600 ml" />
-        </div>
-        <div class="product-title">Cerveja Heineken<br />600 ml</div>
-        <div class="product-price">R$ 10,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Heineken ao carrinho">Adicionar</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Brahma 600 ml">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Brahma_Beer_cerveja.png" alt="Cerveja Brahma 600 ml" />
-        </div>
-        <div class="product-title">Cerveja Brahma<br />600 ml</div>
-        <div class="product-price">R$ 9,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Brahma ao carrinho">Adicionar</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Skol 350 ml">
-          <img src="https://logodownload.org/wp-content/uploads/2016/10/skol-logo-2.png" alt="Cerveja Skol 350 ml" style="max-height: 60px;" />
-        </div>
-        <div class="product-title">Cerveja Skol<br />lt 350 ml</div>
-        <div class="product-price">R$ 2,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Skol ao carrinho">Adicionar</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Imperio 350 ml">
-          <img src="https://www.promodefix.com.br/img/produtos/143026589811-cerveja-imperio-lata-350ml.png" alt="Cerveja Imperio 350 ml" />
-        </div>
-        <div class="product-title">Cerveja Imperio<br />lt 350 ml</div>
-        <div class="product-price">R$ 3,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Imperio ao carrinho">Adicionar</button>
+      <div>Entre ou Cadastre</div>
+
+      <div class="icon-cart">
+        <img src="assets/images/carrinho-de-compras.png" alt="Carrinho">
       </div>
 
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Heineken 600 ml">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Heineken_bottle.svg/1200px-Heineken_bottle.svg.png" alt="Cerveja Heineken 600 ml" />
-        </div>
-        <div class="product-title">Cerveja Heineken<br />600 ml</div>
-        <div class="product-price">R$ 10,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Heineken ao carrinho">Adicionar</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Brahma 600 ml">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Brahma_Beer_cerveja.png" alt="Cerveja Brahma 600 ml" />
-        </div>
-        <div class="product-title">Cerveja Brahma<br />600 ml</div>
-        <div class="product-price">R$ 9,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Brahma ao carrinho">Adicionar</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Skol 350 ml">
-          <img src="https://logodownload.org/wp-content/uploads/2016/10/skol-logo-2.png" alt="Cerveja Skol 350 ml" style="max-height: 60px;" />
-        </div>
-        <div class="product-title">Cerveja Skol<br />lt 350 ml</div>
-        <div class="product-price">R$ 2,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Skol ao carrinho">Adicionar</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image-holder" aria-label="Imagem Cerveja Imperio 350 ml">
-          <img src="https://www.promodefix.com.br/img/produtos/143026589811-cerveja-imperio-lata-350ml.png" alt="Cerveja Imperio 350 ml" />
-        </div>
-        <div class="product-title">Cerveja Imperio<br />lt 350 ml</div>
-        <div class="product-price">R$ 3,99</div>
-        <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Imperio ao carrinho">Adicionar</button>
-      </div>
     </div>
 
-    <div class="pagination-area" aria-label="Navegação de páginas">
-      <span class="page-label">De:</span>
-      <button class="active" aria-current="page" aria-label="Página 1">1</button>
-      <button aria-label="Página 2">2</button>
-      <button aria-label="Página 3">3</button>
-      <button aria-label="Página 4">4</button>
-      <span class="products-per-page" tabindex="0" role="button" aria-label="Produtos por página"></span>
-    </div>
-  </section>
-</main>
+  </header>
+  <main>
+    <aside class="sidebar-filters" aria-label="Filtros">
+      <div>
+        <h3>Categoria:</h3>
+        <label class="filter-label">
+          <input type="checkbox" /> Cervejas <span class="count">(78)</span>
+        </label>
+      </div>
+      <div class="separator"></div>
+      <div>
+        <h3>SubCategoria:</h3>
+        <label class="filter-label">
+          <input type="checkbox" /> Cervejas tradicionais <span class="count">(48)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" /> Cervejas Especiais <span class="count">(20)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" /> Kits de Cerveja <span class="count">(10)</span>
+        </label>
+      </div>
+      <div class="separator"></div>
+      <div>
+        <h3>Marca</h3>
+        <label class="filter-label"><input type="checkbox" /> Skol</label>
+        <label class="filter-label"><input type="checkbox" /> Budwaiser</label>
+        <label class="filter-label"><input type="checkbox" /> Heineken</label>
+        <label class="filter-label"><input type="checkbox" /> Brahma</label>
+        <label class="filter-label"><input type="checkbox" /> Imperio</label>
+      </div>
+    </aside>
+    <section class="product-section" aria-label="Lista de produtos">
+      <h1 class="page-heading">Cervejas</h1>
+      <div class="sort-controls">
+        Ordenar Por:
+        <select aria-label="Ordenar produtos">
+          <option>Relevancia</option>
+        </select>
+      </div>
+
+      <div class="products-grid">
+        <!-- Card: Heineken -->
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Heineken 600 ml">
+            <img src="assets/images/heineken.jpg" alt="Cerveja Heineken 600 ml" />
+          </div>
+          <div class="product-title">Cerveja Heineken<br />600 ml</div>
+          <div class="product-price">R$ 10,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Heineken ao carrinho">Adicionar</button>
+        </div>
+        <!-- Card: Brahma -->
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Brahma 600 ml">
+            <img src="assets/images/brahma-600-700x850.jpg" alt="Cerveja Brahma 600 ml" />
+          </div>
+          <div class="product-title">Cerveja Brahma<br />600 ml</div>
+          <div class="product-price">R$ 9,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Brahma ao carrinho">Adicionar</button>
+        </div>
+        <!-- Card: Skol -->
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Skol 350 ml">
+            <img src="assets/images/skol.jpg" alt="Cerveja Skol 350 ml" style="max-height: 60px;" />
+          </div>
+          <div class="product-title">Cerveja Skol<br />lt 350 ml</div>
+          <div class="product-price">R$ 2,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Skol ao carrinho">Adicionar</button>
+        </div>
+        <!-- Card: Imperio -->
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Imperio 350 ml">
+            <img src="assets/images/imperio.jpg" alt="Cerveja Imperio 350 ml" />
+          </div>
+          <div class="product-title">Cerveja Imperio<br />lt 350 ml</div>
+          <div class="product-price">R$ 3,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Imperio ao carrinho">Adicionar</button>
+        </div>
+
+        <!-- Repete para preencher o grid: 18 produtos -->
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Heineken 600 ml">
+            <img src="assets/images/heineken.jpg" alt="Cerveja Heineken 600 ml" />
+          </div>
+          <div class="product-title">Cerveja Heineken<br />600 ml</div>
+          <div class="product-price">R$ 10,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Heineken ao carrinho">Adicionar</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Brahma 600 ml">
+            <img src="assets/images/brahma-600-700x850.jpg" alt="Cerveja Brahma 600 ml" />
+          </div>
+          <div class="product-title">Cerveja Brahma<br />600 ml</div>
+          <div class="product-price">R$ 9,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Brahma ao carrinho">Adicionar</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Skol 350 ml">
+            <img src="assets/images/skol.jpg" alt="Cerveja Skol 350 ml" style="max-height: 60px;" />
+          </div>
+          <div class="product-title">Cerveja Skol<br />lt 350 ml</div>
+          <div class="product-price">R$ 2,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Skol ao carrinho">Adicionar</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Imperio 350 ml">
+            <img src="assets/images/imperio.jpg" alt="Cerveja Imperio 350 ml" />
+          </div>
+          <div class="product-title">Cerveja Imperio<br />lt 350 ml</div>
+          <div class="product-price">R$ 3,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Imperio ao carrinho">Adicionar</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Heineken 600 ml">
+            <img src="assets/images/heineken.jpg" alt="Cerveja Heineken 600 ml" />
+          </div>
+          <div class="product-title">Cerveja Heineken<br />600 ml</div>
+          <div class="product-price">R$ 10,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Heineken ao carrinho">Adicionar</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Brahma 600 ml">
+            <img src="assets/images/brahma-600-700x850.jpg" alt="Cerveja Brahma 600 ml" />
+          </div>
+          <div class="product-title">Cerveja Brahma<br />600 ml</div>
+          <div class="product-price">R$ 9,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Brahma ao carrinho">Adicionar</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Skol 350 ml">
+            <img src="assets/images/skol.jpg" alt="Cerveja Skol 350 ml" style="max-height: 60px;" />
+          </div>
+          <div class="product-title">Cerveja Skol<br />lt 350 ml</div>
+          <div class="product-price">R$ 2,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Skol ao carrinho">Adicionar</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image-holder" aria-label="Imagem Cerveja Imperio 350 ml">
+            <img src="assets/images/imperio.jpg" alt="Cerveja Imperio 350 ml" />
+          </div>
+          <div class="product-title">Cerveja Imperio<br />lt 350 ml</div>
+          <div class="product-price">R$ 3,99</div>
+          <button class="btn-add-to-cart" aria-label="Adicionar Cerveja Imperio ao carrinho">Adicionar</button>
+        </div>
+      </div>
+
+      <div class="pagination-area" aria-label="Navegação de páginas">
+        <span class="page-label">De:</span>
+        <button class="active" aria-current="page" aria-label="Página 1">1</button>
+        <button aria-label="Página 2">2</button>
+        <button aria-label="Página 3">3</button>
+        <button aria-label="Página 4">4</button>
+        <span class="products-per-page" tabindex="0" role="button" aria-label="Produtos por página"></span>
+      </div>
+    </section>
+  </main>
 
 </body>
+
 </html>
