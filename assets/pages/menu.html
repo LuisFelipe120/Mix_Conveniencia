@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Menu</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background: transparent;
+  }
+
+  .menuBox {
+    width: 360px;                  /* Caixa menor, sem estourar */
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+    display: flex;
+    gap: 15px;
+    overflow: visible;             /* IMPORTANTE: impede scroll */
+  }
+
+  .leftSide {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: visible;             /* garante sem scroll */
+  }
+
+  .leftSide h2 {
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .leftSide p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.3;
+  }
+
+  .rightSide {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: visible;             /* impede rolagem */
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: visible;
+  }
+
+  .col h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .col a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .col a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="menuBox">
+
+    <div class="leftSide">
+      <h2>Mix Conveniência</h2>
+      <p>Navegue pelas seções da Mix e compre já o seu produto</p>
+    </div>
+
+    <div class="rightSide">
+
+      <div class="col">
+        <h3>Bebidas:</h3>
+        <a href="#">Cervejas</a>
+        <a href="#">Cerveja Zero</a>
+        <a href="#">Destilados</a>
+        <a href="#">Vinhos</a>
+        <a href="#">Sucos</a>
+        <a href="#">Refrigerantes</a>
+      </div>
+
+      <div class="col">
+        <h3>Produtos em Gerais:</h3>
+        <a href="#">Salgadinhos</a>
+        <a href="#">Mercearia</a>
+        <a href="#">Gelo</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

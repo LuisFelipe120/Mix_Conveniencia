@@ -1,0 +1,116 @@
+.menuDrop {
+  position: relative; 
+  display: inline-block;
+}
+
+.menuSummary {
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+  list-style: none;
+}
+
+.menuDrop summary::-webkit-details-marker {
+  display: none;
+}
+
+.menuDrop[open] .menuFrame {
+  display: block;
+}
+
+/* o iframe NÃO PODE empurrar o header */
+.menuFrame {
+  position: absolute;
+  top: 25px;     /* distância abaixo do texto "Mix Conveniência" */
+  left: 0;
+  display: none;
+  width: 180px;
+  height: 160px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 8px;
+  z-index: 999;  /* para aparecer por cima */
+}
+/* MENU MEGA DROPDOWN */
+.megaDrop {
+  position: relative;
+  display: inline-block;
+}
+
+.megaSummary {
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+}
+
+.megaDrop summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Caixa do mega menu */
+.megaMenu {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  background: #fff;
+  width: 420px;
+  min-height: 200px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+  display: flex;
+  gap: 10px;
+}
+
+/* aparece quando o details abre */
+.megaDrop[open] .megaMenu {
+  display: flex;
+}
+
+/* imagem lateral */
+.megaImg {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.megaImg img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* colunas de links */
+.megaCols {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.megaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.megaCol h4 {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.megaCol a {
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.megaCol a:hover {
+  text-decoration: underline;
+}
