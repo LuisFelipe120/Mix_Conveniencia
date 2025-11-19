@@ -40,6 +40,121 @@ header{
   align-items: center;
   text-decoration: none;
 }
+.megaDrop {
+  position: relative;
+  display: inline-block;
+}
+
+.megaSummary {
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+  list-style: none;
+}
+
+.megaDrop summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Caixa do mega menu - ajustada para evitar scroll e não empurrar o header */
+.megaMenu {
+  position: absolute;
+  top: 25px;  /* Distância abaixo do summary */
+  left: 0;
+  background: #fff;
+  width: 420px;  /* Ajuste para 360px se quiser menor */
+  height: 180px;  /* Altura fixa para caber tudo sem scroll */
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 999;  /* Aparece acima do header */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+  display: flex;
+  gap: 10px;
+  overflow: hidden;  /* Impede scroll interno */
+}
+.megaMenu2 {
+  position: absolute;
+  top: 25px;  /* Distância abaixo do summary */
+  left: 0;
+  background: #fff;
+  width: 120px;  /* Ajuste para 360px se quiser menor */
+  height: 280px;  /* Altura fixa para caber tudo sem scroll */
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 999;  /* Aparece acima do header */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+  display: flex;
+  gap: 10px;
+  overflow: hidden;  /* Impede scroll interno */
+}
+
+/* Aparece quando o details abre */
+.megaDrop[open] .megaMenu {
+  display: flex;
+}
+.megaDrop[open] .megaMenu2 {
+  display: flex;
+}
+/* Seção lateral (título/descrição ou imagem) */
+.megaImg {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+
+.megaImg img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Colunas de links */
+.megaCols {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+.megaCols2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.megaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+
+.megaCol h4 {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.megaCol a {
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.megaCol a:hover {
+  text-decoration: underline;
+}
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;

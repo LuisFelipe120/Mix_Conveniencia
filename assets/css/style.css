@@ -1,113 +1,241 @@
+/* Reset e estilos gerais */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-span{
+
+span {
   font-weight: bold;
   color: black;
   font-size: 15px;
 }
-.logo{
+
+.logo {
   height: 90px;
 }
-header{
+
+header {
   height: 80px;
   width: 100%;
   background-color: #E0DEDD; 
-  position: fixed
+  position: fixed;
+  z-index: 1000;  /* Garante que o header fique acima do mega menu */
 }
 
-.cabArea{
+.cabArea {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.search{
+
+.search {
   border: 2px solid blue;
   border-radius: 5px;
   width: 100%;
   align-items: center;
-  width: 100%;
   outline: none;
   height: 25px;
   text-align: center;
 }
 
-.linkCad{
+.linkCad {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
 }
-/* main content*/
 
-main{
-    padding-top: 80px;
+/* Estilos para o mega menu */
+.megaDrop {
+  position: relative;
+  display: inline-block;
 }
-.content{
+
+.megaSummary {
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+  list-style: none;
+}
+
+.megaDrop summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Caixa do mega menu - ajustada para evitar scroll e não empurrar o header */
+.megaMenu {
+  position: absolute;
+  top: 25px;  /* Distância abaixo do summary */
+  left: 0;
+  background: #fff;
+  width: 420px;  /* Ajuste para 360px se quiser menor */
+  height: 180px;  /* Altura fixa para caber tudo sem scroll */
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 999;  /* Aparece acima do header */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+  display: flex;
+  gap: 10px;
+  overflow: hidden;  /* Impede scroll interno */
+}
+.megaMenu2 {
+  position: absolute;
+  top: 25px;  /* Distância abaixo do summary */
+  left: 0;
+  background: #fff;
+  width: 120px;  /* Ajuste para 360px se quiser menor */
+  height: 280px;  /* Altura fixa para caber tudo sem scroll */
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 999;  /* Aparece acima do header */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+  display: flex;
+  gap: 10px;
+  overflow: hidden;  /* Impede scroll interno */
+}
+
+/* Aparece quando o details abre */
+.megaDrop[open] .megaMenu {
+  display: flex;
+}
+.megaDrop[open] .megaMenu2 {
+  display: flex;
+}
+/* Seção lateral (título/descrição ou imagem) */
+.megaImg {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+
+.megaImg img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Colunas de links */
+.megaCols {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+.megaCols2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.megaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+
+.megaCol h4 {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.megaCol a {
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.megaCol a:hover {
+  text-decoration: underline;
+}
+
+/* Resto do CSS (main, footer, etc.) permanece igual */
+main {
+  padding-top: 80px;
+}
+
+.content {
   width: 100%;
 }
 
-.bannerArea{
+/* ... (seu CSS restante para banner, entrega, cards, footer, etc.) */
+.bannerArea {
   height: 430px;
 }
 
-.banner{
+.banner {
   height: 100%;
   width: 100%;
 }
 
-.entregaArea{
+.entregaArea {
   height: 350px;
   width: 100%;
   background-color: #F4F4F4;
-  
 }
-.entregaContent{
-    padding-top: 15px;
+
+.entregaContent {
+  padding-top: 15px;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-#tituloEntrega{
+#tituloEntrega {
   font-size: 35px;
   font-weight: bold;
 }
 
-#subEntrega{
+#subEntrega {
   font-size: 20px;
-  font-weight: 500 ;
-}
-.textoentrega{
-  height: 190px; 
-  display: flex; flex-direction: column; 
-  align-items: center; justify-content: space-around;
+  font-weight: 500;
 }
 
-.entregaImg{
+.textoentrega {
+  height: 190px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: space-around;
+}
+
+.entregaImg {
   height: 280px;
-    border: 1px solid #ddd;
+  border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
   max-width: 100%;
 }
+
 .entregaImg:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-.buttonA{
+.buttonA {
   background-color: blue;
-   border: 2px solid blue;
+  border: 2px solid blue;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   width: 30%;
   height: 30px;
-  font-weight: bold
+  font-weight: bold;
 }
-.cardArea{
+
+.cardArea {
   width: 100%;
   height: 300px;
   padding: 7px;
@@ -118,13 +246,12 @@ main{
   margin-bottom: 10px;
 }
 
-
-img{
+img {
   height: 100%;
   width: 100%;
 }
 
-.bebidasArea{
+.bebidasArea {
   height: 200px;
   width: 35%;
   display: flex;
@@ -133,20 +260,21 @@ img{
   align-items: center;
 }
 
-.passar{
+.passar {
   width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.tituloCard{
+.tituloCard {
   font-size: 30px;
-    font-weight: bold;
+  font-weight: bold;
 }
-.buttonB{
+
+.buttonB {
   background-color: blue;
-   border: 2px solid blue;
+  border: 2px solid blue;
   border-radius: 5px;
   color: white;
   cursor: pointer;
@@ -155,7 +283,8 @@ img{
   font-weight: bold;
   font-size: 15px;
 }
-.buttonP{
+
+.buttonP {
   font-size: 20px;
   font-weight: 500;
   border: solid 2px #CCCCCC;
@@ -166,128 +295,133 @@ img{
   cursor: pointer;
 }
 
-.cardProduto{
+.cardProduto {
   height: 100%;
   width: 20%;
-
   border: 2px solid #707070;
   border-radius: 8px;
   padding-left: 5px;
 }
-.cardProdutoContent{
+
+.cardProdutoContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around  ;
+  justify-content: space-around;
   width: 100%;
-  height: 100% ;
+  height: 100%;
 }
 
-.logoCard{
+.logoCard {
   height: 50%;
   width: 40%;
   border: solid 2px #CCC;
-  border-radius: 5px
+  border-radius: 5px;
 }
-.textCard{
+
+.textCard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around ;
+  justify-content: space-around;
   height: 40%;
 }
-.textCard h4{
+
+.textCard h4 {
   font-size: 23px;
 }
-.precoArea{
+
+.precoArea {
   width: 100%;
 }
 
-.desconto{
+.desconto {
   color: red;
 }
 
-.preco{
-  text-align: center
+.preco {
+  text-align: center;
 }
 
-.preco p{
+.preco p {
   font-size: 23px;
   font-weight: bold;
 }
 
-.buttonAd{
+.buttonAd {
   background-color: blue;
-   border: 2px solid blue;
+  border: 2px solid blue;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   width: 70%;
   height: 20px;
-  font-weight: bold
+  font-weight: bold;
 }
 
-footer{
+footer {
   height: 80px;
   width: 100%;
   background-color: #000;
-
 }
 
-.footerContent{
+.footerContent {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.Sobre{
+.Sobre {
   padding-top: 5px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-a{
+
+a {
   text-decoration: none;
+  color: inherit;
 }
-.Sobre h3{
+
+.Sobre h3 {
   font-size: 15px;
   color: #FFF;
-  font-weight: bold
+  font-weight: bold;
 }
-.Sobre h1{
+
+.Sobre h1 {
   color: #d9d9d9;
   font-size: 22px;
   font-weight: bold;
 }
 
+/* Hover effects */
 .buttonA:hover {
-  background-color: #005fa3; /* tom levemente mais escuro */
-  transform: translateY(-2px); /* pequeno "levantar" */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* leve sombra */
+  background-color: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
 .buttonB:hover {
-  background-color: #005fa3; /* tom levemente mais escuro */
-  transform: translateY(-2px); /* pequeno "levantar" */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* leve sombra */
+  background-color: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
 .buttonP:hover {
-  background-color: #d9d9d9; /* tom levemente mais escuro */
-  transform: translateY(-2px); /* pequeno "levantar" */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* leve sombra */
+  background-color: #d9d9d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
 .buttonAd:hover {
-  border-color: #FFF; /* tom levemente mais escuro */
-  transform: translateY(-2px); /* pequeno "levantar" */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* leve sombra */
+  border-color: #FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-a{
-  text-decoration: none;
-  color: inherit;
-}
+
 .search:focus {
-  border-color: #0078d4; /* muda a cor da borda */
-  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2); /* leve brilho, opcional */
+  border-color: #0078d4;
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2);
 }
-
-
