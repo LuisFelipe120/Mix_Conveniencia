@@ -1,5 +1,5 @@
 body {
-    background: #f1f1f1;
+    background: #fff;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center; 
@@ -84,3 +84,12 @@ body {
     cursor: pointer;
     font-size: 14px;
   }
+ button:hover {
+      background-color: #5c83e1;
+      color: white;
+ }
+  input:focus
+    {
+      outline: none;
+      border: 1px solid #163ab4;
+    }

@@ -4,6 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+      font-family: Arial, Helvetica, sans-serif;
+color: #111;
+}
 
 span {
   font-weight: bold;
@@ -20,9 +24,15 @@ header {
   width: 100%;
   background-color: #E0DEDD; 
   position: fixed;
-  z-index: 1000;  /* Garante que o header fique acima do mega menu */
+  z-index: 1000;
+    backdrop-filter: blur(6px);
+  background: rgba(224, 222, 221, 0.9);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
 }
-
+header:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
 .cabArea {
   display: flex;
   align-items: center;
@@ -37,7 +47,13 @@ header {
   outline: none;
   height: 25px;
   text-align: center;
+    transition: all 0.25s ease;
+
 }
+.search:hover {
+  border-color: #005fa3;
+}
+
 
 .linkCad {
   display: flex;
@@ -84,11 +100,11 @@ header {
 }
 .megaMenu2 {
   position: absolute;
-  top: 25px;  /* Distância abaixo do summary */
-  left: 0;
+  top: 35px;  /* Distância abaixo do summary */
+  left: -50px;
   background: #fff;
-  width: 120px;  /* Ajuste para 360px se quiser menor */
-  height: 280px;  /* Altura fixa para caber tudo sem scroll */
+  width: 220px;  /* Ajuste para 360px se quiser menor */
+  height: 100vh;
   padding: 15px;
   border-radius: 12px;
   border: 1px solid #ccc;
@@ -99,7 +115,28 @@ header {
   gap: 10px;
   overflow: hidden;  /* Impede scroll interno */
 }
+.megaMenu, .megaMenu2 {
+  animation: fadeDrop 0.25s ease forwards;
+}
 
+@keyframes fadeDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.megaCol a {
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.megaCol a:hover {
+  color: #0078d4;
+  padding-left: 5px;
+}
 /* Aparece quando o details abre */
 .megaDrop[open] .megaMenu {
   display: flex;
@@ -141,15 +178,17 @@ header {
 .megaCol {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4px;
   overflow: hidden;
 }
 
 
 .megaCol h4 {
+  padding-top: 330px;
   margin-bottom: 3px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .megaCol a {
@@ -173,18 +212,21 @@ main {
 
 /* ... (seu CSS restante para banner, entrega, cards, footer, etc.) */
 .bannerArea {
-  height: 430px;
+  height: 100%;
 }
 
 .banner {
   height: 100%;
   width: 100%;
+    filter: brightness(0.97);
+
 }
 
 .entregaArea {
   height: 350px;
   width: 100%;
-  background-color: #F4F4F4;
+  background-color: #E9DFF6;
+
 }
 
 .entregaContent {
@@ -236,6 +278,7 @@ main {
 }
 
 .cardArea {
+  margin-top: 10px;
   width: 100%;
   height: 300px;
   padding: 7px;
@@ -245,6 +288,10 @@ main {
   align-items: center;
   margin-bottom: 10px;
 }
+.cardProduto {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
 
 img {
   height: 100%;
@@ -258,6 +305,7 @@ img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+    
 }
 
 .passar {
@@ -268,7 +316,7 @@ img {
 }
 
 .tituloCard {
-  font-size: 30px;
+  font-size: 3  0px;
   font-weight: bold;
 }
 
@@ -298,9 +346,13 @@ img {
 .cardProduto {
   height: 100%;
   width: 20%;
-  border: 2px solid #707070;
-  border-radius: 8px;
+  border: 2px solid #CCC;
+  border-radius: 5px;
   padding-left: 5px;
+  background: #FFF;
+  background: linear-gradient(135deg, #ffffff, #f3f0ff);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .cardProdutoContent {
@@ -315,8 +367,8 @@ img {
 .logoCard {
   height: 50%;
   width: 40%;
-  border: solid 2px #CCC;
-  border-radius: 5px;
+  border: solid 1px #CCC ;
+  border-radius: 2px;
 }
 
 .textCard {
@@ -328,7 +380,7 @@ img {
 }
 
 .textCard h4 {
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .precoArea {
@@ -363,6 +415,8 @@ footer {
   height: 80px;
   width: 100%;
   background-color: #000;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.25);
+
 }
 
 .footerContent {
@@ -424,4 +478,36 @@ a {
 .search:focus {
   border-color: #0078d4;
   box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2);
+}
+.buttonA, .buttonB, .buttonAd {
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttonA::after, 
+.buttonB::after, 
+.buttonAd::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+
+.buttonA:hover::after,
+.buttonB:hover::after,
+.buttonAd:hover::after {
+  left: 100%;
+  transition: 0.4s;
+}
+img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.00);
+  filter: contrast(1.05);
 }
